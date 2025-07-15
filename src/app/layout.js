@@ -1,20 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
+"use client";
+
 import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Provider as ReduxProvider } from "react-redux";
+import { SessionProvider } from "next-auth/react";
+import { store } from "@/lib/redux/store";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-export const metadata = {
-  title: "Startica",
-  description: "An entrepreneurial circle",
-};
 
 export default function RootLayout({ children }) {
   return (
@@ -22,7 +21,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ReduxProvider store={store}>{children}</ReduxProvider>
       </body>
     </html>
   );

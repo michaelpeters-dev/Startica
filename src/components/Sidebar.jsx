@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import SidebarLink from "./SidebarLink";
 import {
@@ -7,12 +8,12 @@ import {
   Inbox,
   Bookmark,
   ClipboardList,
-  List,
   User,
   MoreHorizontal,
 } from "lucide-react";
+import { signOut } from "next-auth/react";
 
-const Sidebar = () => {
+const Sidebar = ({ session }) => {
   return (
     <div className="hidden sm:flex flex-col items-center xl:items-start xl:w-[340px] p-2 fixed h-full">
       <div className="w-full xl:ml-24">
@@ -39,15 +40,18 @@ const Sidebar = () => {
       <button className="hidden xl:inline ml-auto bg-[#1d9bf0] text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]">
         Post
       </button>
-      <div className="text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto xl:-mr-5 mt-auto">
+      <div
+        className="text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto xl:-mr-5 mt-auto"
+        onClick={signOut}
+      >
         <img
-          src="/circular_border.png"
+          src={session.user.image}
           alt="User profile image"
           className="h-10 w-10 rounded-full xl:mr-2.5"
         />
         <div className="hidden xl:inline leading-5">
-          <h4 className="font-bold">firebase 18774</h4>
-          <p className="text-[#6e767d]">@firebase1875</p>
+          <h4 className="font-bold">{session.user.name}</h4>
+          <p className="text-[#6e767d]">@{session.user.tag}</p>
         </div>
         <MoreHorizontal className="h-5 hidden xl:inline ml-10" />
       </div>

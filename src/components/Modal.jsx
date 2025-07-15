@@ -122,11 +122,20 @@ const Modal = ({ session }) => {
           <div className="px-5 pt-4 pb-6">
             {post && (
               <div className="flex gap-x-3 text-[#6e767d] relative">
-                <img
-                  src={post?.userImg}
-                  alt="User"
-                  className="h-11 w-11 rounded-full"
-                />
+                <div className="w-11 flex justify-center relative">
+                  <img
+                    src={post?.userImg}
+                    alt="User"
+                    className="h-11 w-11 rounded-full z-10"
+                  />
+                  {commentsList.length > 0 && (
+                    <div
+                      className="absolute left-1/2 -translate-x-1/2 w-px bg-gray-600"
+                      style={{ top: "2.75rem", bottom: "-1.5rem" }}
+                    />
+                  )}
+                </div>
+
                 <div className="flex-1">
                   <div className="flex items-center gap-x-1 text-[16px]">
                     <span className="text-white font-bold text-[16px]">

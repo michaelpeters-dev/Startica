@@ -67,65 +67,45 @@ const Post = ({ id, post, postPage, session }) => {
 
   return (
     <div
-      className="p-3 flex cursor-pointer border-b border-gray-700"
+      className="p-3 flex items-start space-x-4 cursor-pointer border-b border-gray-700"
       onClick={() => router.push(`/${id}`)}
     >
-      {!postPage && (
-        <img
-          src={post?.userImg}
-          alt="Profile Picture"
-          className="h-11 w-11 rounded-full mr-4"
-        />
-      )}
+      <img
+        src={post?.userImg}
+        alt="Profile"
+        className="h-11 w-11 rounded-full"
+      />
+
       <div className="flex flex-col space-y-2 w-full">
-        <div className={`flex ${!postPage && "justify-between"}`}>
-          {postPage && (
-            <img
-              src={post?.userImg}
-              alt="Profile Picture"
-              className="h-11 w-11 rounded-full mr-4"
-            />
-          )}
-          <div className="text-[#6e767d]">
-            <div className="inline-block group">
-              <h4
-                className={`font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline ${
-                  !postPage && "inline-block"
-                }`}
-              >
+        <div className="flex justify-between w-full">
+          <div className="w-full">
+            <div className="flex items-center gap-1 text-[#6e767d]">
+              <h4 className="font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline">
                 {post?.username}
               </h4>
-              <span
-                className={`text-sm sm:text-[15px] ${!postPage && "ml-1.5"}`}
-              >
-                @{post?.tag}
+              <span className="text-sm sm:text-[15px]">@{post?.tag}</span>
+              <span className="text-sm sm:text-[15px]">·</span>
+              <span className="hover:underline text-sm sm:text-[15px]">
+                <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
               </span>
-            </div>{" "}
-            .{" "}
-            <span className="hover:underline text-sm sm:text-[15px]">
-              <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
-            </span>
-            {!postPage && (
-              <p className="text-[#d9d9d9] text-[15px] sm:text-base mt-0.5">
-                {post?.text}
-              </p>
-            )}
+            </div>
+
+            <p className="text-[#d9d9d9] text-[15px] sm:text-base mt-0.5">
+              {post?.text}
+            </p>
           </div>
-          <div className="icon group flex-shrink-0 ml-auto">
+
+          <div className="icon group flex-shrink-0 ml-2">
             <MoreHorizontal className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
           </div>
         </div>
-        {postPage && (
-          <p className="text-[#d9d9d9] text-[15px] sm:text-base mt-0.5">
-            {post?.text}
-          </p>
-        )}
+
         {post?.image && (
           <div className="w-full flex justify-center items-center">
             <div className="w-[100%] max-w-[400px]">
               <img
                 src={post.image}
-                alt="Post image"
+                alt="Post"
                 className="rounded-2xl object-contain w-full h-auto mx-auto"
               />
             </div>
@@ -133,8 +113,8 @@ const Post = ({ id, post, postPage, session }) => {
         )}
 
         <div
-          className={`text-[#6e767d] flex justify-between w-10/12 ${
-            postPage && "mx-auto"
+          className={`text-[#6e767d] flex justify-between ${
+            postPage ? "px-2" : ""
           }`}
         >
           <div
@@ -155,7 +135,7 @@ const Post = ({ id, post, postPage, session }) => {
             )}
           </div>
 
-          {session.user.uid === post?.id ? (
+          {session?.user?.uid === post?.id ? (
             <div
               className="flex items-center space-x-1 group"
               onClick={(e) => {

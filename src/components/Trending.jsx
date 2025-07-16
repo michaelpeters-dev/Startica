@@ -12,7 +12,7 @@ const Trending = ({ result }) => {
         <p className="text-[#6e767d] text-xs font-medium max-w-[250px]">
           Trending with{" "}
           {result.tags.map((tag, i) => (
-            <span key={i} className="text-[#1d9bf0] hover:underline">
+            <span key={i} className="tag">
               {tag}
               {i < result.tags.length - 1 && ", "}
             </span>

@@ -108,7 +108,7 @@ const Modal = ({ session }) => {
         className="fixed inset-0 bg-[#A9A9A9]/20 backdrop-blur-[1px] z-40"
       />
 
-      <div className="fixed z-50 inset-0 flex items-center justify-center">
+      <div className="fixed z-50 inset-0 flex items-start justify-center pt-40">
         <div className="w-full max-w-2xl bg-black text-white rounded-3xl shadow-2xl animate-fade-in-up max-h-[90vh] overflow-y-auto">
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
             <button
@@ -223,7 +223,7 @@ const Modal = ({ session }) => {
                 <textarea
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
-                  placeholder="Tweet your reply"
+                  placeholder="Post your reply?"
                   rows="2"
                   className="w-full bg-transparent text-white text-[16px] placeholder-gray-500 outline-none resize-none leading-snug"
                 />
@@ -255,7 +255,7 @@ const Modal = ({ session }) => {
                   </button>
                 </div>
                 {showEmojis && (
-                  <div className="absolute z-50 mt-2">
+                  <div className="fixed ml-[80px] z-[9999]">
                     <Picker data={data} onEmojiSelect={addEmoji} theme="dark" />
                   </div>
                 )}

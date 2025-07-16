@@ -67,7 +67,7 @@ const Post = ({ id, post, postPage, session }) => {
 
   return (
     <div
-      className="p-3 flex items-start space-x-4 cursor-pointer border-b border-gray-700"
+      className="p-3 flex flex-col sm:flex-row items-start space-y-2 sm:space-y-0 sm:space-x-4 cursor-pointer border-b border-gray-700"
       onClick={() => router.push(`/${id}`)}
     >
       <img
@@ -79,13 +79,15 @@ const Post = ({ id, post, postPage, session }) => {
       <div className="flex flex-col space-y-2 w-full">
         <div className="flex justify-between w-full">
           <div className="w-full">
-            <div className="flex items-center gap-1 text-[#6e767d]">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[#6e767d]">
               <h4 className="font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline">
                 {post?.username}
               </h4>
-              <span className="text-sm sm:text-[15px]">@{post?.tag}</span>
+              <span className="hidden sm:inline text-sm sm:text-[15px] break-all">
+                @{post?.tag}
+              </span>
               <span className="text-sm sm:text-[15px]">·</span>
-              <span className="hover:underline text-sm sm:text-[15px]">
+              <span className="hover:underline text-sm sm:text-[15px] whitespace-nowrap">
                 <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
               </span>
             </div>
@@ -102,7 +104,7 @@ const Post = ({ id, post, postPage, session }) => {
 
         {post?.image && (
           <div className="w-full flex justify-center items-center">
-            <div className="w-[100%] max-w-[400px]">
+            <div className="w-full max-w-xs sm:max-w-md">
               <img
                 src={post.image}
                 alt="Post"

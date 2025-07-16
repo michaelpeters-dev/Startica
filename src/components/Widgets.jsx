@@ -5,14 +5,13 @@ import Image from "next/image";
 const Widgets = ({ trendingResults, followResults }) => {
   return (
     <div className="hidden lg:inline ml-8 xl:w-[450px] py-1 space-y-5">
-      {/* Search */}
       <div className="sticky top-0 py-1.5 bg-black xl:w-9/12">
         <div className="flex items-center bg-[#202327] p-3 rounded-full relative">
-          <Search className="text-gray-500 h-5" />
+          <Search className="text-gray-500 h-5 z-50" />
           <input
             type="text"
             placeholder="Search Startica"
-            className="bg-transparent placeholder-gray-500 outline-none text-[#d9d9d9] absolute inset-0 pl-11 border border-transparent w-full"
+            className="bg-transparent placeholder-gray-500 outline-none text-[#d9d9d9] absolute inset-0 pl-11 border border-transparent w-full focus:border-[#1d9bf0] rounded-full focus:bg-black focus:shadow-lg"
           />
         </div>
       </div>
@@ -34,13 +33,16 @@ const Widgets = ({ trendingResults, followResults }) => {
             key={index}
             className="group px-4 py-3 flex items-center transition duration-200 ease-out hover:bg-white/5 cursor-pointer"
           >
-            <Image
-              src={result.userImg}
-              alt="Trending Profile Pictures"
-              width={50}
-              height={50}
-              className="rounded-full object-cover"
-            />
+            <div className="w-[50px] h-[50px] rounded-full overflow-hidden shrink-0">
+              <Image
+                src={result.userImg}
+                alt="Trending Profile Pictures"
+                width={50}
+                height={50}
+                className="object-cover w-full h-full"
+              />
+            </div>
+
             <div className="ml-4 leading-5">
               <h4 className="font-semibold group-hover:underline">
                 {result.username}

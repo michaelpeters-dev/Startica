@@ -5,14 +5,15 @@ import { getProviders } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Modal from "@/components/Modal";
+import Widgets from "@/components/Widgets";
 
 export default async function Home() {
-  // const [trendingRes, followRes] = await Promise.all([
-  //   fetch("https://www.jsonkeeper.com/b/NKEV", { cache: "no-store" }),
-  //   fetch("https://www.jsonkeeper.com/b/WWMJ", { cache: "no-store" }),
-  // ]);
-  // const trendingResults = await trendingRes.json();
-  // const followResults = await followRes.json();
+  const [trendingRes, followRes] = await Promise.all([
+    fetch("https://www.jsonkeeper.com/b/NKEV", { cache: "no-store" }),
+    fetch("https://www.jsonkeeper.com/b/WWMJ", { cache: "no-store" }),
+  ]);
+  const trendingResults = await trendingRes.json();
+  const followResults = await followRes.json();
 
   const providers = await getProviders();
   const session = await getServerSession(authOptions);
@@ -31,6 +32,10 @@ export default async function Home() {
           session={session}
         />
         <Modal session={session} />
+        <Widgets
+          trendingResults={trendingResults}
+          followResults={followResults}
+        />
       </main>
     </div>
   );

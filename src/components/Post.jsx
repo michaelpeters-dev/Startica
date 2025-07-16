@@ -96,7 +96,7 @@ const Post = ({ id, post, postPage, session }) => {
           </div>
 
           <div className="icon group flex-shrink-0 ml-2">
-            <MoreHorizontal className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
+            <MoreHorizontal className="h-5 text-[#6e767d] group-hover:text-[#1C7ED6]" />
           </div>
         </div>
 
@@ -125,11 +125,11 @@ const Post = ({ id, post, postPage, session }) => {
               dispatch(openModal());
             }}
           >
-            <div className="icon group-hover:bg-[#1d9bf0] group-hover:bg-opacity-10">
-              <MessageCircle className="h-5 group-hover:text-[#1d9bf0]" />
+            <div className="icon group-hover:bg-[#1C7ED6] group-hover:bg-opacity-10">
+              <MessageCircle className="h-5 group-hover:text-[#1C7ED6]" />
             </div>
             {comments.length > 0 && (
-              <span className="group-hover:text-[#1d9bf0] text-sm">
+              <span className="group-hover:text-[#1C7ED6] text-sm">
                 {comments.length}
               </span>
             )}
@@ -183,11 +183,11 @@ const Post = ({ id, post, postPage, session }) => {
           </div>
 
           <div className="icon group">
-            <Share2 className="h-5 group-hover:text-[#1d9bf0]" />
+            <Share2 className="h-5 group-hover:text-[#1C7ED6]" />
           </div>
 
           <div className="icon group">
-            <BarChart2 className="h-5 group-hover:text-[#1d9bf0]" />
+            <BarChart2 className="h-5 group-hover:text-[#1C7ED6]" />
           </div>
         </div>
       </div>

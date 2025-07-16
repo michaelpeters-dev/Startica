@@ -37,7 +37,7 @@ const Sidebar = ({ session }) => {
         <SidebarLink Icon={User} text="Profile" />
         <SidebarLink Icon={MoreHorizontal} text="More" />
       </div>
-      <button className="hidden xl:inline ml-auto bg-[#1d9bf0] text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]">
+      <button className="hidden xl:inline ml-auto bg-[#1E90FF] text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1C7ED6]">
         Post
       </button>
       <div

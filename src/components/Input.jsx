@@ -104,7 +104,7 @@ export default function Input({ session }) {
         <div className="flex items-center justify-between pt-2.5">
           <div className="flex items-center gap-x-2">
             <div className="icon" onClick={() => filePickerRef.current.click()}>
-              <ImageIcon className="h-[22px] text-[#1d9bf0]" />
+              <ImageIcon className="h-[22px] text-[#1E90FF]" />
               <input
                 type="file"
                 hidden
@@ -118,7 +118,7 @@ export default function Input({ session }) {
                 className="icon cursor-pointer"
                 onClick={() => setShowEmojis((prev) => !prev)}
               >
-                <Smile className="h-[22px] text-[#1d9bf0]" />
+                <Smile className="h-[22px] text-[#1E90FF]" />
               </div>
 
               {showEmojis && (
@@ -129,16 +129,16 @@ export default function Input({ session }) {
             </div>
 
             <div className="icon">
-              <Calendar className="h-[22px] text-[#1d9bf0]" />
+              <Calendar className="h-[22px] text-[#1E90FF]" />
             </div>
 
             <div className="icon">
-              <BarChart2 className="h-[22px] text-[#1d9bf0]" />
+              <BarChart2 className="h-[22px] text-[#1E90FF]" />
             </div>
           </div>
 
           <button
-            className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:opacity-50 disabled:cursor-default"
+            className="bg-[#1E90FF] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1C7ED6] disabled:opacity-50 disabled:cursor-default"
             disabled={!input.trim() && !selectedFile}
             onClick={sendPost}
           >

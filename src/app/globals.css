@@ -45,7 +45,7 @@ body {
   }
 
   .icon:hover {
-    @apply bg-[#1C7ED6] opacity-10;
+    @apply bg-[#1d9bf0] opacity-10;
   }
   .tag {
     @apply text-[#1d9bf0] font-normal hover:underline cursor-pointer;
